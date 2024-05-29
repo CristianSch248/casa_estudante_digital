@@ -2,6 +2,8 @@ import { createRouter, createWebHistory } from 'vue-router'
 
 import Login from '../views/Login.vue';
 import Dashboard from '../views/Dashboard.vue';
+import Layout from '../views/Layout.vue';
+import Usuarios from '../views/Usuarios.vue';
 
 const routes = [
   {
@@ -11,8 +13,19 @@ const routes = [
   },
   {
     path: '/dashboard',
-    name: 'Dashboard',
-    component: Dashboard
+    component: Layout,
+    children: [
+      {
+        path: '/',
+        name: 'Dashboard',
+        component: Dashboard
+      },
+      {
+        path: '/users',
+        name: 'Usuarios',
+        component: Usuarios
+      },
+    ]
   },
 ]
 

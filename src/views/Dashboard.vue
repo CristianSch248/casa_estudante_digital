@@ -1,12 +1,41 @@
 <template>
+  <div class="dash">
     <h1>Dashboard</h1>
+  </div>
 </template>
-  
+
 <script>
-  export default {
-    name: "Dashboard",
-    components: {},
-  };
-</script>
+/// impotar sidebar
+/// impotar app
+
+export default {
+  name: "Dashboard",
+  components: {},
+  props: {
+      // message: String
+    },
   
-<style></style>
+    data() {
+      return {
+        // variaveis
+      };
+    },
+  
+    mounted() {},
+    created() {},
+  
+    computed: {},
+  
+    watch: {},
+  
+    methods: {
+      // funçoes
+    },
+}
+</script>
+
+<style>
+  .dash {
+    background-color: #3645c9;
+  }
+</style>
