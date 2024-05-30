@@ -5,7 +5,7 @@
       <!-- <router-link to="/">MyApp</router-link> -->
     </div>
     <div class="navbar-menu-user">
-      <div class="col">
+      <div class="user-info">
         <h4>
           <router-link to="/users" class="nav-link">{{ Usuario ? Usuario.nome : 'Aluno' }}</router-link>
         </h4>
@@ -51,10 +51,8 @@ export default {
   methods: {
     // funçoes
     async getUserData(){
-      console.log('em async getUserData(){')
       const userData = await fetchUserData()
       this.Usuario = userData
-      console.log("🚀 ~ getUserData ~ this.Usuario:", this.Usuario)
     }
   },
 }
@@ -62,10 +60,11 @@ export default {
 
 <style scoped>
 
-.tipoUsuario{
+.tipoUsuario {
   background-color: #ffffff;
   border-radius: 15px;
-  padding-left: 25px;
+  padding: 5px 10px;
+  display: inline-block; 
 }
 
 .navbar {
@@ -82,15 +81,24 @@ export default {
   font-weight: bold;
 }
 
-.navbar-brand a {
-  color: #fff;
+
+.navbar-brand {
+  color: #000;
   text-decoration: none;
+  margin-left: 1rem; /* Ajuste da margem esquerda */
+}
+
+.navbar-menu {
+  display: flex;
+  align-items: center;
+  margin-left: auto; /* Alinha o menu à direita */
 }
 
 .navbar-menu-user {
   display: flex;
   align-items: center;
   gap: 1rem;
+  margin-left: 1rem; /* Ajuste da margem esquerda */
 }
 
 .navbar-menu-user h4 {
@@ -101,16 +109,30 @@ export default {
   margin: 0;
 }
 
-.navbar-menu {
+.user-info {
   display: flex;
-  align-items: center;
-  gap: 1rem;
+  flex-direction: column;
+  align-items: center; /* Centraliza os itens verticalmente */
+}
+
+.tipoUsuario {
+  background-color: #ffffff;
+  border-radius: 15px;
+  padding: 5px 10px;
+  display: inline-block;
+}
+
+.nav-link {
+  color: #000000;
+  text-decoration: none;
+  font-weight: bold;
 }
 
 .opcoes {
   display: flex;
   gap: 1rem;
   overflow-x: auto;
+  margin-right: 6rem; /* Adiciona mais espaço à direita */
 }
 
 .nav-link {
@@ -118,10 +140,6 @@ export default {
   text-decoration: none;
   font-weight: bold;
   margin-right: 1rem;
-}
-
-.nav-link.router-link-active {
-  color: #007BFF;
 }
 
 .sair {
