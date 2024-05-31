@@ -7,7 +7,7 @@
     <div class="navbar-menu-user">
       <div class="user-info">
         <h4>
-          <router-link to="/users" class="nav-link">{{ Usuario ? Usuario.nome : 'Aluno' }}</router-link>
+          <router-link to="/user" class="nav-link">{{ Usuario ? Usuario.nome : 'Aluno' }}</router-link>
         </h4>
         <div class="tipoUsuario" v-if="Usuario">
           <p v-if="Usuario.tipo === 1"> Aluno </p>
@@ -18,11 +18,11 @@
     </div>
     <div class="navbar-menu">
       <div class="opcoes" v-if="Usuario">
-        <router-link to="/users" class="nav-link">Apartamentos</router-link>
-        <router-link to="/users" class="nav-link">Patrimônios</router-link>
-        <router-link to="/users" class="nav-link">Vistorias</router-link>
-        <router-link to="/users" class="nav-link">Alocar Alunos</router-link>
-        <router-link to="/users" class="nav-link">Usuários</router-link>
+        <router-link to="/user" class="nav-link">Apartamentos</router-link>
+        <router-link to="/user" class="nav-link">Patrimônios</router-link>
+        <router-link to="/user" class="nav-link">Vistorias</router-link>
+        <router-link to="/user" class="nav-link">Alocar Alunos</router-link>
+        <router-link to="/controle/usuarios" class="nav-link">Usuários</router-link>
       </div>
       <div class="sair">
         <router-link to="/" class="nav-link">Sair</router-link>

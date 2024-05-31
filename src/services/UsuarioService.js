@@ -16,10 +16,13 @@ async function login(credentials) {
     }
 }
 
+function logout() {
+    sessionStorage.removeItem('authToken')
+}
+
 async function fetchUserData() {
     try {
         const response = await api.get('/user/data')
-        console.log("🚀 ~ fetchUserData ~ response:", response)
         return response.data
     } catch (error) {
         console.error('Erro ao buscar dados do usuário:', error)
@@ -27,13 +30,47 @@ async function fetchUserData() {
     }
 }
 
-function logout() {
-    sessionStorage.removeItem('authToken')
+async function getAllUsers(params = {}) {
+    try {
+        const response = await api.get('/usuario/listarportipo', { params })
+        return response.data
+    } catch (error) {
+        console.error('Erro ao buscar dados do usuário:', error)
+        throw error
+    }
+}
+
+async function ativarUser(id) {
+    try {
+        const response = await api.patch('/usuario/ativar', {
+            id: id
+        })
+        return response.data
+    } catch (error) {
+        console.error('Erro ao buscar dados do usuário:', error)
+        throw error
+    }
+}
+
+async function desativarUser(id) {
+    try {
+        const response = await api.patch('/usuario/desativar', {
+            id: id
+        })
+        return response.data
+    } catch (error) {
+        console.error('Erro ao buscar dados do usuário:', error)
+        throw error
+    }
 }
 
 export { 
     login,
     logout,
 
-    fetchUserData
+    fetchUserData,
+    getAllUsers,
+
+    ativarUser,
+    desativarUser
 }
