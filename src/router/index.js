@@ -5,6 +5,7 @@ import Dashboard from '../views/Dashboard.vue';
 import Layout from '../views/Layout.vue';
 import Usuarios from '../views/Usuarios.vue';
 import ControleUsuarios from '../views/ControleUsuarios.vue';
+import CadastrarUsuarios from '../views/CadastrarUsuarios.vue';
 
 const routes = [
   {
@@ -22,7 +23,7 @@ const routes = [
         component: Dashboard
       },
       {
-        path: '/user',
+        path: '/user/:id?',
         name: 'Usuarios',
         component: Usuarios
       },
@@ -30,6 +31,11 @@ const routes = [
         path: '/controle/usuarios',
         name: 'ControleUsuarios',
         component: ControleUsuarios
+      },
+      {
+        path: '/cadastrar/usuarios',
+        name: 'CadastrarUsuarios',
+        component: CadastrarUsuarios
       },
     ]
   },

@@ -20,6 +20,16 @@ function logout() {
     sessionStorage.removeItem('authToken')
 }
 
+async function getUser(id) {
+    try {
+        const response = await api.get('/usuario/', { params: { id: id } })
+        return response.data
+    } catch (error) {
+        console.error('Erro ao buscar dados do usuário:', error)
+        throw error
+    }
+}
+
 async function fetchUserData() {
     try {
         const response = await api.get('/user/data')
@@ -64,6 +74,22 @@ async function desativarUser(id) {
     }
 }
 
+async function novoUsuario(usuario){
+    try {
+        const response = await api.post('/usuario/new', { 
+            nome: usuario.nome,
+            email: usuario.email,
+            senha: usuario.senha,
+            tipo: usuario.tipo,
+            telefone: usuario.telefone 
+        })
+        return response
+    } catch (error) {
+        console.error('Erro ao buscar dados do usuário:', error)
+        throw error
+    }
+}
+
 export { 
     login,
     logout,
@@ -72,5 +98,8 @@ export {
     getAllUsers,
 
     ativarUser,
-    desativarUser
+    desativarUser,
+    
+    getUser,
+    novoUsuario
 }

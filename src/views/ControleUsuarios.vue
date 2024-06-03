@@ -1,17 +1,17 @@
 <template>
     <div class="container">
-        <div class="card">
-            <div class="row">
-                <div class="col">
+        <div class="card shadow">
+            <div class="row align-items-center">
+                <div class="col text-start m-3">
                     <h2>Controle Usuários</h2>
                 </div>
-                <div class="col">
+                <div class="col text-end m-3">
                     <button type="button" class="btn btn-outline-primary" @click="novoUsuario">Novo Usuário</button> 
                 </div>
             </div>
         </div>
 
-        <div class="card">
+        <div class="card shadow">
             <table class="table table-striped">
                 <thead>
                     <tr>
@@ -64,7 +64,6 @@
 
             async getUsers(){
                 getAllUsers({ tipo: 1 }).then(users => {
-                    console.log(users)
                     this.usuarios = users
                 }).catch(error => {
                     console.error(error)
@@ -72,11 +71,11 @@
             },
 
             novoUsuario(){
-
+                this.$router.push({ path: '/cadastrar/usuarios' })
             },
 
             editarUsuario(id){
-
+                this.$router.push({ path: `/user/${id}` })
             },
 
             ativarUsuario(id){
@@ -99,4 +98,22 @@
 </script>
       
 <style scoped>
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.card {
+  width: 80%;
+  margin: 20px 0;
+}
+
+.row {
+  width: 100%;
+}
+
+.table {
+  margin: 0;
+}
 </style>

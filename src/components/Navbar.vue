@@ -9,7 +9,7 @@
         <h4>
           <router-link to="/user" class="nav-link">{{ Usuario ? Usuario.nome : 'Aluno' }}</router-link>
         </h4>
-        <div class="tipoUsuario" v-if="Usuario">
+        <div class="tipoUsuario shadow" v-if="Usuario">
           <p v-if="Usuario.tipo === 1"> Aluno </p>
           <p v-if="Usuario.tipo === 2"> PRAE </p>
           <p v-if="Usuario.tipo === 3"> Manutenção </p>
